@@ -14,8 +14,10 @@ The project itself consists of the World Models algorithm which is implemented f
 
 # Run model
 0. Run *pip install -r requirements.txt* to install all required packages.
-1. Change the config.py file to suit your needs. **For our tutors, we advice not to change the settings and use the number '1' as the variable for folder_save_name**. This results in e.g. *python generate_random.py 1 rand* as a command for step 2.
+1. Change the config.py file to suit your needs. **For our tutors, we advice not to change the settings and use the number '1' as the variable for folder_save_name, meaning that you can e.g. use *python generate_random.py 1 rand* as a command for step 2**. 
+
 Note: if you do not have a screen (i.e. training on a server) add '*xvfb-run -a -s "-screen 0 1400x900x24"*' before every Python command. This enables users to train the agent on a computer/server without a monitor.
+
 2. To train the VAE, we need to generate random data. This can be achieved by running: \
 *python generate_random.py folder_save_name rand* 
 3. Train the VAE: \
