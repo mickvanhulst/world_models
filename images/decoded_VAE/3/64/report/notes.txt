@@ -1,0 +1,3 @@
+loss 3.98
+
+For both total epochs = 10, with two batches of observations.
