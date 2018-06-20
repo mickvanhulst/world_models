@@ -27,9 +27,9 @@ users to check what information is encoded by the VAE.
 5. To train the RNN run: \
 *python train_rnn.py folder_save_name*
 6. To train the controller: \
-*python train_controller.py folder_save_name* \
-Note: Due to the usage of multithreading, one has to manually quit this job once he/she feels that the agent has trained for a sufficient amount of time. 
-7. (Optional) If you want to visualize VAE and/or RNN images, and/or want to generate new data so that you can iterate, run the following: \
+*timeout x python train_controller.py folder_save_name* \
+Note: Due to the usage of multithreading, one has to assign a value to x, which constitutes how long the controller will train in seconds (e.g. *timeout 5 python train_controller.py 1* will result in the controller script running for five seconds). 
+7. (Optional) The following command can be used to: 1) visualize the observations which the VAE/RNN encode/predict. 2) Generate new data so that a user can start iterating the entire model. 3) see the best model play. To do this, use the following command: \
 *python model.py 1*
 
 If you've executed step 7, then you can start iterating the model by repeating step 3-7.
