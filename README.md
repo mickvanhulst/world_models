@@ -1,7 +1,7 @@
 # Project World Models
 This repository contains the code base of a project which was executed for the course Natural Computing at the Radboud University. The project was executed by Mick van Hulst, Jorrit van der Laan and Jelle Piepenbrock. The course itself was tutored by Prof. Dr. Marchiori.
 
-The project itself consists of the World Models algorithm which is implemented for the game Space Invaders. The full report is added as a pdf. The original paper can be found via the following [link]{https://worldmodels.github.io/}. Furthermore, the report which is added describes several code bases which we used to e.g. multithread the training of our controller.
+The project itself consists of the World Models algorithm which is implemented for the game Space Invaders. The full report is added as a pdf. The original paper can be found via the following [link](https://worldmodels.github.io/). Furthermore, the report which is added describes several code bases which we used to e.g. multithread the training of our controller.
 
 # To run windows with screen
 1. Install vcXsrv (on Windows).
