@@ -61,7 +61,3 @@ def make_env(seed=111):
         env.seed(seed)
 
     return env
-
-#todo: can be removed and just used directly.
-def adjust_obs(obs):
-    return obs.astype('float32') / 255.

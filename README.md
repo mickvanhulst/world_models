@@ -3,7 +3,7 @@ This repository contains the code base of a project which was executed for the c
 
 The project itself consists of the World Models algorithm which is implemented for the game Space Invaders. The full report is added as a pdf. The original paper can be found via the following [link](https://worldmodels.github.io/). Furthermore, the report which is added describes several code bases which we used to e.g. multithread the training of our controller.
 
-# To run windows with screen
+# To run with display on Windows
 1. Install vcXsrv (on Windows).
 2. Install all dependancies on WSL (bash).
 3. pip install gym
