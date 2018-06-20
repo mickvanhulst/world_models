@@ -28,6 +28,7 @@ users to check what information is encoded by the VAE.
 *python train_rnn.py folder_save_name*
 6. To train the controller: \
 *python train_controller.py folder_save_name*
+Note: Due to the usage of multithreading, one has to manually quit this job once he/she feels that the agent has trained for a sufficient amount of time. 
 7. (Optional) If you want to visualize VAE and/or RNN images, and/or want to generate new data so that you can iterate, run the following: \
 *python model.py 1*
 
