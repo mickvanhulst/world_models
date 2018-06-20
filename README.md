@@ -31,4 +31,4 @@ users to check what information is encoded by the VAE.
 7. (Optional) If you want to visualize VAE and/or RNN images, and/or want to generate new data so that you can iterate, run the following: \
 *python model.py 1*
 
-If you've executed step 7, then you can iterate the environment by starting at step 3
+If you've executed step 7, then you can start iterating the model by repeating step 3-7.
