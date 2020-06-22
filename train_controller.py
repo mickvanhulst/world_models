@@ -15,7 +15,7 @@ import time
 
 import config
 from mpi4py_agent import initialize_settings, OldSeeder, Seeder, encode_solution_packets, decode_solution_packet, encode_result_packet, \
-    decode_result_packet, worker, send_packets_to_slaves, receive_packets_from_slaves, evaluate_batch
+    decode_result_packet, worker, send_packets_to_clients, receive_packets_from_clients, evaluate_batch
 
 ### MPI NEEDS to be here.
 comm = MPI.COMM_WORLD
@@ -25,7 +25,7 @@ def sprint(*args):
     print(args)  # if python3, can do print(*args)
     sys.stdout.flush()
 
-def slave():
+def client():
     new_model = make_model(sys.argv[1])
     while True:
         packet = comm.recv(source=0)
@@ -89,10 +89,10 @@ def master():
         reward_list = np.zeros(config.POPULATION)
         time_list = np.zeros(config.POPULATION)
 
-        send_packets_to_slaves(packet_list, config.ENV_NAME)
-        packets_from_slaves = receive_packets_from_slaves()
-        reward_list = reward_list + packets_from_slaves[:, 0]
-        time_list = time_list + packets_from_slaves[:, 1]
+        send_packets_to_clients(packet_list, config.ENV_NAME)
+        packets_from_clients = receive_packets_from_clients()
+        reward_list = reward_list + packets_from_clients[:, 0]
+        time_list = time_list + packets_from_clients[:, 1]
 
         mean_time_step = int(np.mean(time_list) * 100) / 100.  # get average time step
         max_time_step = int(np.max(time_list) * 100) / 100.  # get max time step
@@ -161,7 +161,7 @@ def main():
     if (rank == 0):
         master()
     else:
-        slave()
+        client()
 
 def mpi_fork(n):
     """Re-launches the current script with workers
