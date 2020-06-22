@@ -127,7 +127,7 @@ def worker(weights, seed, max_len, new_model, train_mode_int=1):
     return reward, t
 
 
-def send_packets_to_slaves(packet_list, current_env_name):
+def send_packets_to_clients(packet_list, current_env_name):
     num_worker = comm.Get_size()
     #assert len(packet_list) == num_worker - 1
     for i in range(1, num_worker):
@@ -137,7 +137,7 @@ def send_packets_to_slaves(packet_list, current_env_name):
         comm.send(packet, dest=i)
 
 
-def receive_packets_from_slaves():
+def receive_packets_from_clients():
     result_packet = np.empty(RESULT_PACKET_SIZE, dtype=np.int32)
 
     reward_list_total = np.zeros((config.POPULATION, 2))
@@ -172,9 +172,9 @@ def evaluate_batch(model_params, max_len):
 
     overall_rewards = []
 
-    send_packets_to_slaves(packet_list, config.ENV_NAME)
-    packets_from_slaves = receive_packets_from_slaves()
-    reward_list = packets_from_slaves[:, 0] # get rewards
+    send_packets_to_clients(packet_list, config.ENV_NAME)
+    packets_from_clients = receive_packets_from_clients()
+    reward_list = packets_from_clients[:, 0] # get rewards
     print(reward_list)
     overall_rewards.append(np.mean(reward_list))
     print(overall_rewards)
